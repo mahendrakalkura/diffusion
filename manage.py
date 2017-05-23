@@ -43,41 +43,37 @@ def bet365():
         try:
             diffusion_client.connect()
         except KeyboardInterrupt:
-            from traceback import print_exc
-            print_exc()
             diffusion_client.disconnect()
         except Exception:
-            from traceback import print_exc
-            print_exc()
             diffusion_client.disconnect()
 
 
 def williamhill():
     topics = [
-        'sportsbook/football/{id:d}/i18n/en-gb/commentary'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/cards/red'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/cards/yellow'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/corners'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/goals'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/penalties'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/shots/offTarget'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/shots/onTarget'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/shots/onWoodwork'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/substitutions'.format(id=0),
-        'sportsbook/football/{id:d}/stats/away/throwIns'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/cards/red'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/cards/yellow'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/corners'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/goals'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/penalties'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/shots/offTarget'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/shots/onTarget'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/shots/onWoodwork'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/substitutions'.format(id=0),
-        'sportsbook/football/{id:d}/stats/home/throwIns'.format(id=0),
-        'sportsbook/football/{id:d}/stats/homeTeamPossesion'.format(id=0),
-        'sportsbook/football/{id:d}/stats/period'.format(id=0),
-        'sportsbook/football/{id:d}/stats/time'.format(id=0),
+        'sportsbook/football/0/i18n/en-gb/commentary',
+        'sportsbook/football/0/stats/away/cards/red',
+        'sportsbook/football/0/stats/away/cards/yellow',
+        'sportsbook/football/0/stats/away/corners',
+        'sportsbook/football/0/stats/away/goals',
+        'sportsbook/football/0/stats/away/penalties',
+        'sportsbook/football/0/stats/away/shots/offTarget',
+        'sportsbook/football/0/stats/away/shots/onTarget',
+        'sportsbook/football/0/stats/away/shots/onWoodwork',
+        'sportsbook/football/0/stats/away/substitutions',
+        'sportsbook/football/0/stats/away/throwIns',
+        'sportsbook/football/0/stats/home/cards/red',
+        'sportsbook/football/0/stats/home/cards/yellow',
+        'sportsbook/football/0/stats/home/corners',
+        'sportsbook/football/0/stats/home/goals',
+        'sportsbook/football/0/stats/home/penalties',
+        'sportsbook/football/0/stats/home/shots/offTarget',
+        'sportsbook/football/0/stats/home/shots/onTarget',
+        'sportsbook/football/0/stats/home/shots/onWoodwork',
+        'sportsbook/football/0/stats/home/substitutions',
+        'sportsbook/football/0/stats/home/throwIns',
+        'sportsbook/football/0/stats/homeTeamPossesion',
+        'sportsbook/football/0/stats/period',
+        'sportsbook/football/0/stats/time',
     ]
     diffusion_client = diffusion.DiffusionClient(
         'wss://scoreboards-ssl.williamhill.com/diffusion?v=4&ty=WB',
@@ -90,12 +86,8 @@ def williamhill():
         try:
             diffusion_client.connect()
         except KeyboardInterrupt:
-            from traceback import print_exc
-            print_exc()
             diffusion_client.disconnect()
         except Exception:
-            from traceback import print_exc
-            print_exc()
             diffusion_client.disconnect()
 
 
