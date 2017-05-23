@@ -15,5 +15,5 @@ How to run?
 $ cd diffusion
 $ workon diffusion
 $ python manage.py --bet365
-$ python manage.py --williamhill
+$ python manage.py --williamhill {{ id }}
 ```
