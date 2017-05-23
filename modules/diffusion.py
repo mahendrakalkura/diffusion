@@ -17,12 +17,15 @@ start_logging(level='debug')
 
 class DiffusionClient(object):
 
-    def __init__(self, connection_url, trigger, session_url=None, protocol=None, topics=[]):
+    _USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/5.0 (KHTML, like Gecko) Chrome/5.0 Safari/5.0'
+
+    def __init__(self, connection_url, trigger, session_url=None, protocol=None, headers={}, topics=[]):
         self._message_handler = self
         self._connection_url = connection_url
         self._trigger = trigger
         self._session_url = session_url
         self._protocol = protocol
+        self._headers = headers
         self._topics = topics
 
         self._session_id = self._get_session_id()
@@ -32,7 +35,12 @@ class DiffusionClient(object):
         self._connection = None
 
     def _get_factory(self):
-        factory = DiffusionFactory(self._connection_url, protocols=self._get_protocols())
+        factory = DiffusionFactory(
+            self._connection_url,
+            headers=self._headers,
+            protocols=self._get_protocols(),
+            useragent=self._USER_AGENT,
+        )
 
         factory.message_handler = self._message_handler
         factory.trigger = self._trigger
@@ -175,9 +183,9 @@ class DiffusionProtocol(WebSocketClientProtocol):
 
     def onClose(self, was_clean, code, reason):
         log.msg('closed connection')
-        log.msg('was clean: %s', repr(was_clean))
-        log.msg('code: %s', repr(code))
-        log.msg('reason: %s', repr(reason))
+        log.msg('was clean: %s' % repr(was_clean))
+        log.msg('code: %s' % repr(code))
+        log.msg('reason: %s' % repr(reason))
 
     def onMessage(self, payload, isBinary):
         self.factory.message_handler.pre_message()
